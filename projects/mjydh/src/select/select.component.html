@@ -1,0 +1,15 @@
+ <select class="form-control" *ngIf="ngvalue == 'objeto'"  [(ngModel)]="option" (change)="getSelect()" >
+    <option [value]="option" disabled selected >{{tipoTituloSelects}} </option>
+    <option [ngValue]="option" *ngFor="let option of tipoOptions" >{{option.nombre}}</option>
+  </select>
+
+  <select class="form-control" *ngIf="ngvalue == 'id'"[(ngModel)]="option" (change)="getSelect()" >
+    <option [value]="option" disabled selected >{{tipoTituloSelects}} </option>
+    <option [ngValue]="option.id" *ngFor="let option of tipoOptions" >{{option.nombre}}</option>
+  </select>
+
+  <select class="form-control" *ngIf="ngvalue == 'observable'"[(ngModel)]="option" (change)="getSelect()" >
+    <option [value]="option" disabled selected >{{tipoTituloSelects}} </option>
+    <option [ngValue]="option" *ngFor="let option of tipoOptions | async" >{{option.nombre}}</option>
+  </select>
+

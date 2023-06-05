@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projectLibrary';
+
+  dato = [
+    {nombre:'juan'},
+    {nombre:'Rodrigo'},
+    {nombre:'julian'}
+  ]
+
 }
