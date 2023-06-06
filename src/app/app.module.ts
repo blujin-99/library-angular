@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SelectModule } from 'mjydh';
+import { SelectModule } from 'projects/mjydh/src/public-api';
 
 @NgModule({
   declarations: [

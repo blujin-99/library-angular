@@ -1,0 +1,73 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav
+        #drawer
+        class="sidenav"
+        fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+        <mat-toolbar class="text-center">
+            <img
+                src="https://www.santafe.gob.ar/assets/app/portal2016/images/logo-header.png"
+                class="img-fluid mt-4" />
+        </mat-toolbar>
+        <mat-nav-list>
+            <hr />
+            <!-- For para los menú  -->
+            <ng-container *ngFor="let menu of menuInicio" >
+             <ng-container *ngIf="menu.link; else urlRef" >
+                <a mat-list-item routerLink={{menu.link}} class="d-block" >             
+                    <mat-icon
+                        style="font-size: medium;"
+                        fontIcon={{menu.icon}}>
+                    </mat-icon>
+                    {{menu.nombre}}
+                </a>
+              </ng-container>
+              <ng-template #urlRef>
+                <a mat-list-item  href="{{menu.url}}" target="_blank">             
+                  <mat-icon
+                      style="font-size: medium; margin-top: 0.5rem"
+                      fontIcon={{menu.icon}}>
+                  </mat-icon>
+                  {{menu.nombre}}
+                </a>
+              </ng-template>
+            </ng-container>
+             <!-- fin del menú  -->
+            <hr class="text-primary" />
+            <a mat-list-item routerLink="/salir">
+                <mat-icon
+                    style="font-size: medium; margin-top: 0.5rem"
+                    fontIcon="logout">
+                </mat-icon>
+                <b>Salir</b>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button
+                type="button"
+                aria-label="Toggle sidenav"
+                mat-icon-button
+                (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span>
+                <h3 class="text-dark">{{title}}</h3>
+            </span>
+        </mat-toolbar>
+        <div class="row m-2 mt-3 mb-3 container-fluid">
+            <div class="col">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        
+        <div class="row">
+            <app-footer-page></app-footer-page>
+        </div>
+        
+    </mat-sidenav-content>
+</mat-sidenav-container>

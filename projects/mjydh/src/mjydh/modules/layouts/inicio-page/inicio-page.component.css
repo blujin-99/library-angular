@@ -1,0 +1,11 @@
+
+.mat-icon{
+    align-self: baseline;
+    overflow:unset !important;
+}
+.mdc-list-item{
+    align-self: center  !important;
+}
+.mdc-list-item__content{
+    margin-top: 0.5rem;
+}

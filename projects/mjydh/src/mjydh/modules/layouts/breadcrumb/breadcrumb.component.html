@@ -1,0 +1,20 @@
+<div class="card-header pb-0">
+    <div class="card-title">
+        <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0">
+                <li
+                    class="breadcrumb-item"
+                    *ngFor="let breadcrumb of breadcrumbs; let last = last"
+                    [class.active]="last"
+                    aria-current="page">
+                    <a *ngIf="breadcrumb.ruta" [routerLink]="breadcrumb.ruta">{{
+                        breadcrumb.nombre
+                    }}</a>
+                    <span *ngIf="!breadcrumb.ruta">{{
+                        breadcrumb.nombre
+                    }}</span>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>

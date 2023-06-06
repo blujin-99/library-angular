@@ -1,0 +1,10 @@
+
+<!-- <app-bs-errors [control]="formCronologico" getCampo="folio" ></app-bs-errors> -->
+
+<ng-container 
+  *ngIf="getCampoControl(getCampo).errors && getCampoControl(getCampo).touched"
+>
+  <div class="alert alert-danger gy-5">
+    * {{mensaje}}
+  </div>
+</ng-container>

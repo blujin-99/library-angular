@@ -1,0 +1,10 @@
+<!--
+    <mat-error >
+        <app-mat-error [control]="formCronologico" getCampo="folio"></app-mat-error>
+    </mat-error> 
+-->
+<ng-container  
+  *ngIf="getCampoControl(getCampo).errors && getCampoControl(getCampo).touched"
+>   
+    * {{mensaje}}
+</ng-container  >
